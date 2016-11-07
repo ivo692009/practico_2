@@ -1,7 +1,7 @@
 @extends('layout.template')
 @section('content')
     <h1>Crear Nuevo Comercio</h1>
-    {!! Form::open(['method' => 'POST', 'route' => 'comercio.store']) !!}
+    {!! Form::open(['method' => 'POST', 'route' => 'comercio.store', 'files' => true]) !!}
     <div class="form-group">
         {!! Form::label('nombre', 'Nombre del nuevo local:') !!}
         {!! Form::text('nombre',null,['class'=>'form-control']) !!}

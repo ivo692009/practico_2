@@ -32,32 +32,17 @@ class ComercioListadoController extends Controller
    public function store(Request $request)
    {
      $nuevo= new Comercio(array(
-         'nombre'=> $request->get('nombre'),
+         'nombre'   =>$request->get('nombre'),
          'direccion'=>$request->get('direccion'),
-         'foto'=>$request->file('foto')->getClientOriginalExtension()
+         'foto'     =>$request->file('foto')->getBasename()
      ));
       
-      $request->file('foto')->move(
-        base_path() . '/public/imagenes/');
-      
+      $request->file('foto')->move(base_path() . '/public/imagenes/');
+     // dd($nuevo);
      $nuevo->save();
      
      return redirect('inicio');
      
-     
-//      $product = new Product(array(
-//      'name' => $request->get('name'),
-//      'sku'  => $request->get('sku')
-//    ));
-//
-//    $product->save();
-//
-//    $imageName = $product->id . '.' . 
-//        $request->file('image')->getClientOriginalExtension();
-//
-//    $request->file('image')->move(
-//        base_path() . '/public/images/catalog/', $imageName
-//    );
    }
    /**
     * Display the specified resource.
