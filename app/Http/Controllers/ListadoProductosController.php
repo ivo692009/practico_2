@@ -8,9 +8,10 @@ use Illuminate\Support\Facades\DB;
 class ListadoProductosController extends Controller
 {
    
-   public function create()
+   public function create($id)
    {
-       return view('producto.new');
+       
+       return view('producto.new', compact('id'));
    }
    /**
     * Store a newly created resource in storage.
