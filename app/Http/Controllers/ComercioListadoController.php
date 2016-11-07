@@ -53,8 +53,19 @@ class ComercioListadoController extends Controller
 //       return view('comercio.listado',compact('listado'));
        return view('comercio.perfil',compact('comercio'), compact('listado'));
    }
-
+   
+   public function productos($id){
+       
+       $listado=  DB::table('lista_productos')
+                    ->where('id_comercio' , $id)
+                    ->select('lista_productos.*')
+                    ->get();
+//       return view('comercio.listado',compact('listado'));
+       return view('comercio.listado', compact('listado'));
+       
+   }
    /**
+    * 
     * Show the form for editing the specified resource.
     *
     * @param  int  $id

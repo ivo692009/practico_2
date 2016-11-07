@@ -19,7 +19,7 @@
              <td>{{ $l->cantidad_porciones }}</td>
              <td>{{ $l->precio }}</td>
              <td>{{ $l->tiempo_produccion }}</td>
-             <td><img src="{{asset('imagenes/'.$l->foto.'.jpg')}}" height="100" width="100"></td>
+             <td><img src="{{asset('imagenes/'.$l->foto_producto.'.jpg')}}" height="100" width="100"></td>
      @endforeach
      
      </tbody>
