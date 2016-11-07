@@ -32,14 +32,15 @@ class ComercioListadoController extends Controller
    public function store(Request $request)
    {
      $nuevo= new Comercio(array(
-         'nombre'   =>$request->get('nombre'),
-         'direccion'=>$request->get('direccion'),
-         'foto'     =>$request->file('foto')->getBasename()
+         'nombre'   => $request->get('nombre'),
+         'direccion'=> $request->get('direccion'),
+         'foto'     => $request->file('foto')->getBasename()
      ));
-      
-      $request->file('foto')->move(base_path() . '/public/imagenes/');
-     // dd($nuevo);
+      dd($nuevo);
      $nuevo->save();
+     
+     $request->file('foto')->move(base_path() . '/public/imagenes/');
+     // dd($nuevo);
      
      return redirect('inicio');
      
@@ -73,15 +74,6 @@ class ComercioListadoController extends Controller
        return view('comercio.listado', compact('listado'));
        
    }
-   
-   public function rules()
-    {
-        return [
-          'nombre'          => 'required',
-          'direccion'       => 'required',
-          'foto'            => 'required|mimes:jpg'
-        ];
-    }
    /**
     * 
     * Show the form for editing the specified resource.

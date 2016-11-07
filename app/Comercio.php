@@ -10,7 +10,7 @@ class Comercio extends Model
     protected $fillable=[
         'nombre'    => 'required|string|min:7',
         'direccion' => 'required|string|min:10',
-        'foto'
+        'foto'      => 'mimes:jpg',
     ];
     
     public $timestamps = false;

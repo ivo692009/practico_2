@@ -12,7 +12,7 @@
     </div>
     <div class="form-group">
         {!! Form::label('Foto Del Comercio') !!}
-        {!! Form::file('foto', null, ['class'=>'form-control']) !!}
+        {!! Form::file('foto', null, ['class' => 'field']) !!}
     </div>
     <div class="form-group">
         {!! Form::submit('Crear', ['class' => 'btn btn-primary form-control']) !!}
