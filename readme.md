@@ -1,27 +1,52 @@
 # Laravel PHP Framework
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+## Documentacion
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+Integrante: Lares Ivo Luis Alfredo
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+Framework: Laravel
 
-## Official Documentation
+Requerimientos previos:
+* Composer
+* NetBeans (con el inidice de maven actualizado)
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+## El Producto
 
-## Contributing
+El servicio a brindar, pedidos online a comercios, consta de las siguientes características:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+## Perfil del comercio: 
+Perfil que se le otorga al comercio que quiera adherirse al servicio web.
+Ordenamiento de pedidos: Se ordenan los pedidos entrantes con las especificaciones adicionales del usuario comprador. Se ordenan al mismo nivel y tiempo de tal forma que la eficiencia sea mayor.
 
-## Security Vulnerabilities
+## Calculación de tiempo aproximado de pedido: 
+Se realiza un tiempo estimado de realización del producto tomando en cuenta la cantidad de pedidos pendientes.
+Catálogo de productos disponibles: Una lista ordenada alfabéticamente por tipos de productos registrados.
+Información del comercio: Información adicional del comercio (Dueño, numero de telefono, correo electronico, dirección en la localidad, etc)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+## Registro de ventas: 
+Un registro que almacena todas aquellas ventas exitosas con fecha ,precio y usuario destinado.
+Organización de delivery: Un módulo que permite generar un recorrido de forma eficiente, tomando en cuenta los productos a enviar y las direcciones correspondientes.
 
-## License
+## Perfil del usuario:
+Perfil que se le otorga al usuario final adherido
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+## Datos requeridos obligatorios: 
+Información personal necesaria para dar de alta un usuario válido: DNI, Dirección real, Nombre y Apellido, Fecha de Nacimiento.
+Puntuación personal: Un valor que se le otorga al usuario mediante compras exitosas generadas.
+
+## Catalogo de comercios adheridos: 
+Inicio del servicio.
+
+## Catálogo: 
+Se muestran todos los Comercios registrados. También podrán verse algunos comentarios de los usuarios con respecto a este comercio.
+
+## Sistema de puntajes:
+Muestra un número entre 1 al 10 con respecto a la puntuación de los usuarios que generaron un pedido al comercio.
+Login: Sistema de iniciación de un usuario.
+
+## Reporte de problemas: 
+Reportar un problema de ámbito software o mal funcionamiento sobre el servicio web.
+
+## Denuncia a usuarios o comercios: 
+Una planilla de denuncia al comercio indicado. Según la denuncia efectuada, se le avisara al comercio por una notificación directa sobre el problema. Ante múltiples denuncias del mismo índole se puede llegar a tomar la medida de cerrar el usuario sin posibilidad de una reincorporación.
+
