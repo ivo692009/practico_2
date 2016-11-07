@@ -10,7 +10,7 @@ class ListadoProductosController extends Controller
    
    public function create()
    {
-      //
+       return view('producto.new');
    }
    /**
     * Store a newly created resource in storage.
@@ -19,7 +19,9 @@ class ListadoProductosController extends Controller
     */
    public function store(Request $request)
    {
-     
+     $nuevo= new Listado($request ->all());
+     $nuevo->save();
+     return redirect('inicio');
    }
    /**
     * Display the specified resource.

@@ -20,6 +20,11 @@
              <td>{{ $l->puntaje }}</td>
              <td><img src="{{asset('imagenes/'.$l->foto.'.jpg')}}" height="35" width="30"></td>
              <td><a href="{{url('comercio',$l->id)}}" class="btn btn-primary">Visitar</a></td>
+             <td>
+             {!! Form::open(['method' => 'DELETE', 'route'=>['comercio.destroy', $l->id]]) !!}
+             {!! Form::submit('Borrar Comercio', ['class' => 'btn btn-danger']) !!}
+             {!! Form::close() !!}
+             </td>
          </tr>
      @endforeach
 

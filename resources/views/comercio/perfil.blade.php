@@ -21,7 +21,11 @@
             </div>
         </div>
         <h1>Listado de Productos</h1>
-
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <a href="{{ route('producto.create')}}" class="btn btn-primary">Crear Producto</a>
+            </div>
+        </div>
             <table class="table">
              <thead>
              <tr class="bg-info">

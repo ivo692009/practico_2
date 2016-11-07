@@ -29,12 +29,14 @@ Route::resource('inicio','ComercioListadoController');
 
 Route::resource('comercio', 'ComercioListadoController');
 
-Route::get('inicio', 'ComercioListadoController@index');
+Route::resource('producto', 'ListadoProductosController');
+
+//Route::get('inicio', 'ComercioListadoController@index');
 
 //Route::get('comercio/nuevo','ComercioListadoController@create');
 
 //Route::post('comercio/crear_nuevo', 'ComercioListadoController@store');
 
-Route::get('comercio/{id}/listado','ListadoProductosController@show');
+//Route::get('comercio/{id}/listado','ListadoProductosController@show');
 
 Route::resource('comercio/{id}','ComercioListadoController@show');

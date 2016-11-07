@@ -19,7 +19,7 @@
              <td>{{ $l->cantidad_porciones }}</td>
              <td>{{ $l->precio }}</td>
              <td>{{ $l->tiempo_produccion }}</td>
-             <td><img src="{{asset('imagenes/'.$l->foto.'.jpg')}}" height="35" width="30"></td>
+             <td><img src="{{asset('imagenes/'.$l->foto.'.jpg')}}" height="100" width="100"></td>
      @endforeach
      
      </tbody>
@@ -28,6 +28,6 @@
             <div class="col-sm-offset-2 col-sm-10">
                 <a href="{{ url('inicio')}}" class="btn btn-primary">Volver al inicio</a>
             </div>
-        </div>
+     </div>
     </table>
 @stop
