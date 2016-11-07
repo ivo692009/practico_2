@@ -8,8 +8,8 @@ class Comercio extends Model
 {
     protected $table = 'comercio_listado';
     protected $fillable=[
-        'nombre',
-        'direccion',
+        'nombre'    => 'required|string|min:7',
+        'direccion' => 'required|string|min:10',
         'foto'
     ];
     
