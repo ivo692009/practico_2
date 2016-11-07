@@ -28,7 +28,7 @@
              </td>
          </tr>
      @endforeach
-
+     <a href="{{route('reportes.create')}}" class="btn btn-primary">Algun error? REPORTALO!</a>
      </tbody>
 
  </table>

@@ -28,6 +28,10 @@ Route::controllers([
 Route::resource('inicio','ComercioListadoController');
 
 Route::resource('comercio', 'ComercioListadoController');
+
+Route::resource('reportes', 'ReportesController');
+
+
 Route::get('productos/{id}','ComercioListadoController@productos');
 
 Route::resource('producto', 'ListadoProductosController');
