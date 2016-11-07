@@ -31,9 +31,33 @@ class ComercioListadoController extends Controller
     */
    public function store(Request $request)
    {
-     $nuevo= new Comercio($request ->all());
+     $nuevo= new Comercio(array(
+         'nombre'=> $request->get('nombre'),
+         'direccion'=>$request->get('direccion'),
+         'foto'=>$request->file('foto')->getClientOriginalExtension()
+     ));
+      
+      $request->file('foto')->move(
+        base_path() . '/public/imagenes/');
+      
      $nuevo->save();
+     
      return redirect('inicio');
+     
+     
+//      $product = new Product(array(
+//      'name' => $request->get('name'),
+//      'sku'  => $request->get('sku')
+//    ));
+//
+//    $product->save();
+//
+//    $imageName = $product->id . '.' . 
+//        $request->file('image')->getClientOriginalExtension();
+//
+//    $request->file('image')->move(
+//        base_path() . '/public/images/catalog/', $imageName
+//    );
    }
    /**
     * Display the specified resource.
@@ -64,6 +88,15 @@ class ComercioListadoController extends Controller
        return view('comercio.listado', compact('listado'));
        
    }
+   
+   public function rules()
+    {
+        return [
+          'nombre'          => 'required',
+          'direccion'       => 'required',
+          'foto'            => 'required|mimes:jpg'
+        ];
+    }
    /**
     * 
     * Show the form for editing the specified resource.

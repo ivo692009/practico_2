@@ -8,7 +8,9 @@ Framework: Laravel
 
 Requerimientos previos:
 * Composer
-* NetBeans (con el inidice de maven actualizado)
+* NetBeans (actualizado)
+* PHP 7 (Con todos los componentes necesarios)
+* BBDD MySQL (SQL dentro de la carpeta "database")
 
 ## El Producto
 

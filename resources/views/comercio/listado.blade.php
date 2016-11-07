@@ -3,7 +3,7 @@
     <h1>Listado de Productos</h1>
 
     <table class="table">
-     <thead>
+     <thead class="thead-inverse">
      <tr class="bg-info">
          <th>Nombre del Producto</th>
          <th>Cantidad de porciones</th>

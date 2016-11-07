@@ -11,8 +11,8 @@
         {!! Form::text('direccion',null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
-        {!! Form::label('foto', 'Foto:') !!}
-        {!! Form::text('foto',null,['class'=>'form-control']) !!}
+        {!! Form::label('Foto Del Comercio') !!}
+        {!! Form::file('foto', null, ['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
         {!! Form::submit('Crear', ['class' => 'btn btn-primary form-control']) !!}

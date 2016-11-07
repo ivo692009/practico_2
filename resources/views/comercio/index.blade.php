@@ -2,7 +2,7 @@
 @section('content')
  <h1>Listado de Comercios</h1>
  <a href="{{route('comercio.create')}}" class="btn btn-success">Crear un nuevo comercio</a>
- <table class="table">
+ <table class="table table-bordered table-inverse bg-success">
      <thead>
      <tr class="bg-info">
          <th>Nombre del Local</th>
