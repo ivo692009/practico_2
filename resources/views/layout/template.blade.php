@@ -7,7 +7,7 @@
 
 <style>
     body{
-background: url(imagenes/fondo.jpg) no-repeat center center fixed;
+background: url(../imagenes/fondo.jpg) no-repeat center center fixed;
 -webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
@@ -20,4 +20,4 @@ background-size: cover;
         @yield('content')
     </div>
 </body>
-</html
+</html>

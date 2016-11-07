@@ -29,5 +29,5 @@
                 <a href="{{ url('inicio')}}" class="btn btn-primary">Volver al inicio</a>
             </div>
         </div>
- </table>
+    </table>
 @stop

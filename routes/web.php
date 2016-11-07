@@ -25,12 +25,16 @@ Route::controllers([
    'password' => 'Auth\PasswordController',
 ]);*/
 
+Route::resource('inicio','ComercioListadoController');
+
+Route::resource('comercio', 'ComercioListadoController');
+
 Route::get('inicio', 'ComercioListadoController@index');
 
-//Route::resource('inicio','ComercioListadoController');
-Route::get('comercio/nuevo','ComercioListadoController@create');
+//Route::get('comercio/nuevo','ComercioListadoController@create');
 
-Route::post('crear_nuevo', 'ComercioListadoController@store');
+//Route::post('comercio/crear_nuevo', 'ComercioListadoController@store');
 
-Route::post('listado/{id}','ListadoProductosController@show');
+Route::get('comercio/{id}/listado','ListadoProductosController@show');
+
 Route::resource('comercio/{id}','ComercioListadoController@show');

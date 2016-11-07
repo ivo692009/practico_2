@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use App\Comercio;
 use Illuminate\Support\Facades\DB;
 
 class ComercioListadoController extends Controller
 {
    public function index()
    {
-      $listado = DB::table('comercio_listado')->get();
-      return view('comercio.index',['listado' => $listado]);
+      $listado = DB::table('comercio_listado')
+                    ->get();
+      return view('comercio.index',compact('listado'));
    }
    /**
     * Show the form for creating a new resource.
@@ -29,8 +31,8 @@ class ComercioListadoController extends Controller
     */
    public function store(Request $request)
    {
-     $nuevo=$request->all();
-     ComercioListadoController::create($nuevo);
+     $nuevo= new Comercio($request ->all());
+     $nuevo->save();
      return redirect('inicio');
    }
    /**
@@ -41,8 +43,15 @@ class ComercioListadoController extends Controller
     */
    public function show($id)
    {
-       $comercio=  DB::table('comercio_listado')->where('id' , $id) ->first();
-       return view('comercio.perfil',compact('comercio'));
+       $comercio=  DB::table('comercio_listado')
+                    ->where('id' , $id) 
+                    ->first();
+       $listado=  DB::table('lista_productos')
+                    ->where('id_comercio' , $id)
+                    ->select('lista_productos.*')
+                    ->get();
+//       return view('comercio.listado',compact('listado'));
+       return view('comercio.perfil',compact('comercio'), compact('listado'));
    }
 
    /**

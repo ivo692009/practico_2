@@ -1,8 +1,7 @@
 @extends('layout/template')
-
 @section('content')
  <h1>Listado de Comercios</h1>
- <a href="{{url('/comercio/nuevo')}}" class="btn btn-success">Crear un nuevo comercio</a>
+ <a href="{{route('comercio.create')}}" class="btn btn-success">Crear un nuevo comercio</a>
  <table class="table">
      <thead>
      <tr class="bg-info">
@@ -27,4 +26,4 @@
      </tbody>
 
  </table>
-@endsection
+ @stop

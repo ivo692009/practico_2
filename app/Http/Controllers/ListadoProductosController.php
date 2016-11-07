@@ -29,12 +29,7 @@ class ListadoProductosController extends Controller
     */
    public function show($id)
    {
-       $listado=  DB::table('lista_productos')
-                    ->get()
-                    ->where('lista_productos.id' ,'=', $id, 'AND comercio_listado.id = lista_productos.id')
-                    ->join('comercio_listado_has_lista_productos', 'lista_productos.id', '=', 'comercio_listado_has_lista_productos.lista_productos_id')
-                    ->join('comercio_listado', 'comercio_listado.id', '=', 'comercio_listado_has_lista_productos.comercio_listado_id');
-       return view('comercio.listado',compact('listado'));
+       
    }
 
    /**
