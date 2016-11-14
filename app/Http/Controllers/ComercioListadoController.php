@@ -51,11 +51,17 @@ class ComercioListadoController extends Controller
     * @param  int  $id
     * @return Response
     */
-   public function show()
+   public function show($id)
    {
-       $l = DB::table('reportes')
+       $comercio=  DB::table('comercio_listado')
+                    ->where('id' , $id) 
+                    ->first();
+       $listado=  DB::table('lista_productos')
+                    ->where('id_comercio' , $id)
+                    ->select('lista_productos.*')
                     ->get();
-        return view('reportes.ver',compact('l'));
+//       return view('comercio.listado',compact('listado'));
+       return view('comercio.perfil',compact('comercio'), compact('listado'));
    }
    
    public function productos($id){

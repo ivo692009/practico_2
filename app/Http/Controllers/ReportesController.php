@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\DB;
 class ReportesController extends Controller
 {
     
+     public function show()
+   {
+       $l = DB::table('reportes')
+                    ->get();
+        return view('reportes.ver',compact('l'));
+   }
+    
     public function create()
    {
       return view('reportes.nuevo');

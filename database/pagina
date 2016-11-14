@@ -2,8 +2,24 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
+DROP SCHEMA IF EXISTS `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
 DROP SCHEMA IF EXISTS `pagina` ;
 CREATE SCHEMA IF NOT EXISTS `pagina` DEFAULT CHARACTER SET utf8 ;
+USE `mydb` ;
+
+-- -----------------------------------------------------
+-- Table `mydb`.`personas`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`personas` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nombre_y_app` VARCHAR(100) NOT NULL,
+  `direccion` VARCHAR(150) NOT NULL,
+  `dni` INT NOT NULL,
+  `foto` VARCHAR(75) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
 USE `pagina` ;
 
 -- -----------------------------------------------------
