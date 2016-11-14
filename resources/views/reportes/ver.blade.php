@@ -10,10 +10,10 @@
      </tr>
      </thead>
      <tbody>
-     @foreach ($listado as $l)
+     @foreach ($l as $la)
          <tr>
-             <td>{{ $l->titulo }}</td>
-             <td>{{ $l->descripcion }}</td>
+             <td>{{ $la->titulo }}</td>
+             <td>{{ $la->descripcion }}</td>
      @endforeach
      
      </tbody>
