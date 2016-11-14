@@ -9,11 +9,11 @@ class Listado extends Model
     protected $table = 'lista_productos';
     protected $fillable=[
         'id_comercio',
-        'nombre',
+        'nombre' => 'required|string|min:7',
         'cantidad_porciones',
-        'precio',
+        'precio' => 'required',
         'tiempo_produccion',
-        'foto_producto'
+        'foto_producto'=> 'mimes:jpg'
     ];
     
     public $timestamps = false;
