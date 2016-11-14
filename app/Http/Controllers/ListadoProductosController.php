@@ -10,7 +10,6 @@ class ListadoProductosController extends Controller
    
    public function create($id)
    {
-       
        return view('producto.new', compact('id'));
    }
    /**
@@ -43,7 +42,9 @@ class ListadoProductosController extends Controller
     */
    public function edit($id)
    {
-      //
+      $e=ListadoProductos::find($id);
+      return view('producto.editar',compact('e'));
+      
    }
    /**
     * Update the specified resource in storage.
@@ -53,7 +54,10 @@ class ListadoProductosController extends Controller
     */
    public function update($id)
    {
-      //
+      $eUpdate=Request::all();
+      $e=ListadoProductos::find($id);
+      $e->update($eUpdate);
+      return redirect('inicio');
    }
    /**
     * Remove the specified resource from storage.
