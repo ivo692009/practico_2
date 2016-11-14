@@ -3,16 +3,13 @@
 namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
-use App\Comercio;
+use App\Personas;
 use Illuminate\Support\Facades\DB;
 
-class ComercioListadoController extends Controller
+class PersonasController extends Controller
 {
-   public function index()
+    public function index()
    {
-      $listado = DB::table('comercio_listado')
-                    ->get();
-      return view('comercio.index',compact('listado'));
    }
    /**
     * Show the form for creating a new resource.
@@ -22,7 +19,7 @@ class ComercioListadoController extends Controller
    
    public function create()
    {
-      return view('comercio.nuevo');
+      return view('personas.nuevo');
    }
    /**
     * Store a newly created resource in storage.
@@ -31,12 +28,13 @@ class ComercioListadoController extends Controller
     */
    public function store(Request $request)
    {
-     $nuevo= new Comercio(array(
-         'nombre'   => $request->get('nombre'),
-         'direccion'=> $request->get('direccion'),
-         'foto'     => $request->file('foto')->getBasename()
+     $nuevo= new Personas(array(
+         'nombre_y_app'   => $request->get('nombre_y_app'),
+         'dni'            => $request->get('dni'),
+         'direccion'      => $request->get('direccion'),
+         'foto'           => $request->file('foto')->getBasename()
      ));
-      dd($nuevo);
+//      dd($nuevo);
      $nuevo->save();
      
      $request->file('foto')->move(base_path() . '/public/imagenes/');
@@ -51,23 +49,12 @@ class ComercioListadoController extends Controller
     * @param  int  $id
     * @return Response
     */
-   public function show()
+   public function show($id)
    {
-       $l = DB::table('reportes')
-                    ->get();
-        return view('reportes.ver',compact('l'));
+   
+       
    }
    
-   public function productos($id){
-       
-       $listado=  DB::table('lista_productos')
-                    ->where('id_comercio' , $id)
-                    ->select('lista_productos.*')
-                    ->get();
-//       return view('comercio.listado',compact('listado'));
-       return view('comercio.listado', compact('listado'));
-       
-   }
    /**
     * 
     * Show the form for editing the specified resource.
@@ -77,7 +64,9 @@ class ComercioListadoController extends Controller
     */
    public function edit($id)
    {
-      //
+       $e=Personas::find($id);
+       return view('personas.editar',compact('e'));
+      
    }
    /**
     * Update the specified resource in storage.
@@ -87,9 +76,12 @@ class ComercioListadoController extends Controller
     */
    public function update($id)
    {
-      //
+      $eUpdate=Request::all();
+      $e=Personas::find($id);
+      $e->update($eUpdate);
+      return redirect('inicio');
    }
-   /**
+   /*11111*
     * Remove the specified resource from storage.
     *
     * @param  int  $id
@@ -97,7 +89,7 @@ class ComercioListadoController extends Controller
     */
    public function destroy($id)
    {
-      Comercio::find($id)->delete();
+       Personas::find($id)->delete();
       return redirect('inicio');
    }
 }
