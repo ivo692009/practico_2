@@ -83,7 +83,9 @@ class ComercioListadoController extends Controller
     */
    public function edit($id)
    {
-      //
+      $persona = Comercio::findOrFail($id);
+     
+       return view('comercio.editar',compact('persona'));
    }
    /**
     * Update the specified resource in storage.
@@ -91,9 +93,14 @@ class ComercioListadoController extends Controller
     * @param  int  $id
     * @return Response
     */
-   public function update($id)
+   public function update(Request $request, $id)
    {
-      //
+        $persona = $request ->all();
+        
+        $b=  Comercio::findOrFail($id);
+
+        $b->update($persona);
+        return redirect('inicio');
    }
    /**
     * Remove the specified resource from storage.
