@@ -34,12 +34,18 @@ class ComercioListadoController extends Controller
      $nuevo= new Comercio(array(
          'nombre'   => $request->get('nombre'),
          'direccion'=> $request->get('direccion'),
-         'foto'     => $request->file('foto')->getBasename()
+         'foto'     => $request->file('foto')->getClientOriginalName()
      ));
-      dd($nuevo);
      $nuevo->save();
+//     dd($nuevo);
+     $file = $request->file('foto');
+     $nombre = $file->getClientOriginalName();
+      \Storage::disk('local')->put($nombre,  \File::get($file));
      
-     $request->file('foto')->move(base_path() . '/public/imagenes/');
+     // dd($nuevo);
+//     $nuevo->save();
+     
+//     $request->file('foto')->move(base_path() . '/public/imagenes/');
      // dd($nuevo);
      
      return redirect('inicio');

@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers;
 use App\Http\Requests;
+use App\Listado;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class ListadoProductosController extends Controller
 {
    
+    public function index()
+   {
+      
+   } 
+    
    public function create($id)
    {
        return view('producto.new', compact('id'));
@@ -31,7 +37,10 @@ class ListadoProductosController extends Controller
     */
    public function show($id)
    {
-       
+       $listado = DB::table('lista_productos')
+                    ->where('id_comercio', $id)
+                    ->get();
+      return view('producto.index',compact('listado'));
    }
 
    /**
@@ -42,7 +51,7 @@ class ListadoProductosController extends Controller
     */
    public function edit($id)
    {
-      $e=ListadoProductos::find($id);
+      $e=Listado::findOrFail($id);
       return view('producto.editar',compact('e'));
       
    }
@@ -52,10 +61,10 @@ class ListadoProductosController extends Controller
     * @param  int  $id
     * @return Response
     */
-   public function update($id)
+   public function update(Request $request, $id)
    {
-      $eUpdate=Request::all();
-      $e=ListadoProductos::find($id);
+      $eUpdate=new Listado($request ->all());;
+      $e=Listado::findOrFail($id);
       $e->update($eUpdate);
       return redirect('inicio');
    }
@@ -67,6 +76,7 @@ class ListadoProductosController extends Controller
     */
    public function destroy($id)
    {
-      //
+      $e= Listado::findOrFail($id)->delete();
+      return redirect('producto');
    }
 }

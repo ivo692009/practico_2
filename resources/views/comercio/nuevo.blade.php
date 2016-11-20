@@ -11,7 +11,7 @@
         {!! Form::text('direccion',null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
-        {!! Form::label('Foto Del Comercio') !!}
+        {!! Form::label('foto','Foto Del Comercio') !!}
         {!! Form::file('foto', null, ['class' => 'field']) !!}
     </div>
     <div class="form-group">
