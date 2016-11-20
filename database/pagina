@@ -2,76 +2,101 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
-DROP SCHEMA IF EXISTS `mydb` ;
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
 DROP SCHEMA IF EXISTS `pagina` ;
-CREATE SCHEMA IF NOT EXISTS `pagina` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
-
--- -----------------------------------------------------
--- Table `mydb`.`personas`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`personas` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `nombre_y_app` VARCHAR(100) NOT NULL,
-  `direccion` VARCHAR(150) NOT NULL,
-  `dni` INT NOT NULL,
-  `foto` VARCHAR(75) NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
+CREATE SCHEMA IF NOT EXISTS `pagina` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
 USE `pagina` ;
 
 -- -----------------------------------------------------
 -- Table `pagina`.`comercio_listado`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pagina`.`comercio_listado` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(100) NOT NULL,
-  `direccion` VARCHAR(200) NOT NULL,
-  `puntaje` DOUBLE NULL DEFAULT NULL,
-  `foto` VARCHAR(45) NULL DEFAULT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(100) NULL,
+  `direccion` VARCHAR(200) NULL,
+  `puntaje` DOUBLE NULL,
+  `foto` VARCHAR(50) NULL,
   PRIMARY KEY (`id`))
-ENGINE = InnoDB
-AUTO_INCREMENT = 8
-DEFAULT CHARACTER SET = utf8;
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `pagina`.`lista_productos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pagina`.`lista_productos` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `id_comercio` INT(11) NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `id_comercio` INT NOT NULL,
   `nombre` VARCHAR(100) NOT NULL,
-  `cantidad_porciones` INT(11) NOT NULL,
+  `cantidad_porciones` INT NOT NULL,
   `precio` DOUBLE NOT NULL,
   `tiempo_produccion` DOUBLE NOT NULL,
-  `foto_producto` VARCHAR(45) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`, `id_comercio`),
+  `foto_producto` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`),
   INDEX `fk_lista_productos_comercio_listado_idx` (`id_comercio` ASC),
   CONSTRAINT `fk_lista_productos_comercio_listado`
     FOREIGN KEY (`id_comercio`)
     REFERENCES `pagina`.`comercio_listado` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB
-AUTO_INCREMENT = 3
-DEFAULT CHARACTER SET = utf8;
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `pagina`.`reportes`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pagina`.`reportes` (
-  `id` INT(10) NOT NULL AUTO_INCREMENT,
-  `titulo` VARCHAR(50) NOT NULL,
-  `descripcion` VARCHAR(240) NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `titulo` VARCHAR(45) NOT NULL,
+  `descripcion` VARCHAR(200) NOT NULL,
   PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `pagina`.`pedidos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `pagina`.`pedidos` (
+  `id` INT NOT NULL,
+  `id_usuario` INT NOT NULL,
+  `id_comercio` INT NOT NULL,
+  `estado` VARCHAR(45) NULL,
+  `numero_de_pedido` INT NOT NULL,
+  `tiempo_estimado` INT NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `pagina`.`detalle`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `pagina`.`detalle` (
+  `id` INT NOT NULL,
+  `numero_de_pedido` INT NOT NULL,
+  `nombre_producto` VARCHAR(45) NOT NULL,
+  `precio` DOUBLE NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- -----------------------------------------------------
+-- Data for table `pagina`.`comercio_listado`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `pagina`;
+INSERT INTO `pagina`.`comercio_listado` (`id`, `nombre`, `direccion`, `puntaje`, `foto`) VALUES (NULL, 'ProtoJeff', 'Cochabamba 6969', 10, '1');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `pagina`.`lista_productos`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `pagina`;
+INSERT INTO `pagina`.`lista_productos` (`id`, `id_comercio`, `nombre`, `cantidad_porciones`, `precio`, `tiempo_produccion`, `foto_producto`) VALUES (NULL, 1, 'Milaneza', 2, 80, 15, NULL);
+
+COMMIT;
+
