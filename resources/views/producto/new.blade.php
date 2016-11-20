@@ -3,17 +3,17 @@
     <h1>Crear Nuevo Producto</h1>
     {!! Form::open(['method' => 'POST', 'route' => 'producto.store']) !!}
     <div class="form-group">
-        {!! Form::number('id_comercio','secret',$id)  !!}
+        {!! Form::number('id_comercio','secret',$id_comercio)  !!}
         {!! Form::label('nombre', 'Nombre del nuevo producto:') !!}
         {!! Form::text('nombre',null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
         {!! Form::label('cantidad_porciones', 'Cantidad de Porciones:') !!}
-        {!! Form::text('direccion',null,['class'=>'form-control']) !!}
+        {!! Form::text('cantidad_porciones',null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
         {!! Form::label('precio', 'Precio del Producto:') !!}
-        {!! Form::number('foto',null,['class'=>'form-control']) !!}
+        {!! Form::number('precio',null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
         {!! Form::label('tiempo_produccion', 'Tiempo Estimado de Produccion:') !!}

@@ -2,8 +2,8 @@
 
 @section('content')
  <h1>Productos</h1>
- <a href="{{route('producto.create')}}" class="btn btn-success">Crear Nuevo Producto</a>
- <hr>
+ <a href="{{ url('/producto/create',$id) }}" class="btn btn-success">Crear Nuevo Producto</a>
+ <hr>       
  <table class="table table-striped table-bordered table-hover">
      <thead>
      <tr class="bg-info">

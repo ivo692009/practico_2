@@ -16,8 +16,16 @@ class ListadoProductosController extends Controller
     
    public function create($id)
    {
-       return view('producto.new', compact('id'));
+       $id_comercio= $id;
+       return view('producto.new', compact('id_comercio'));
    }
+    public function crear($id)
+   {
+        $id_comercio= $id;
+       return view('producto.new', compact('id_comercio'));
+   }
+   
+   
    /**
     * Store a newly created resource in storage.
     *
@@ -36,11 +44,11 @@ class ListadoProductosController extends Controller
     * @return Response
     */
    public function show($id)
-   {
+   {  
        $listado = DB::table('lista_productos')
                     ->where('id_comercio', $id)
                     ->get();
-      return view('producto.index',compact('listado'));
+      return view('producto.index',compact(['listado','id']));
    }
 
    /**

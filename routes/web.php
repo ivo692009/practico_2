@@ -35,5 +35,6 @@ Route::resource('personas', 'PersonasController');
 
 
 Route::get('productos/{id}','ComercioListadoController@productos');
+Route::get('producto/create/{id}','ListadoProductosController@crear');
 
 Route::resource('producto', 'ListadoProductosController');
