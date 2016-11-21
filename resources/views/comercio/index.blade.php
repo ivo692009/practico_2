@@ -18,7 +18,7 @@
              <td>{{ $l->nombre }}</td>
              <td>{{ $l->direccion }}</td>
              <td>{{ $l->puntaje }}</td>
-             <td><img src="{{asset('imagenes/'.$l->foto.'.jpg')}}" height="35" width="30"></td>
+             <td><img src="{{asset('imagenes/comercios/'.$l->foto.'.jpg')}}" height="35" width="30"></td>
              <td><a href="{{url('comercio',$l->id)}}" class="btn btn-primary">Visitar</a></td>
              <td><a href="{{url('/productos',$l->id)}}" class="btn btn-primary">Ver productos del comercio</a></td>
              <td>

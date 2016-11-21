@@ -50,3 +50,6 @@ Route::get('storage/{archivo}', function ($archivo) {
 	//si no se encuentra lanzamos un error 404.
 	abort(404);
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
