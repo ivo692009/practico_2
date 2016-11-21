@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/ivo/NetBeansProjects/practico_2/app/Http/Controllers/ListadoProductosController.php</file>
-            <file>file:/home/ivo/NetBeansProjects/practico_2/resources/views/producto/editar.blade.php</file>
-            <file>file:/home/ivo/NetBeansProjects/practico_2/resources/views/producto/new.blade.php</file>
+            <file>file:/home/ivo/NetBeansProjects/practico_2/resources/views/usuarios/nuevo.blade.php</file>
+            <file>file:/home/ivo/NetBeansProjects/practico_2/resources/views/usuarios/perfil.blade.php</file>
+            <file>file:/home/ivo/NetBeansProjects/practico_2/resources/views/usuarios/editar.blade.php</file>
+            <file>file:/home/ivo/NetBeansProjects/practico_2/app/Http/Controllers/UsuariosController.php</file>
             <file>file:/home/ivo/NetBeansProjects/practico_2/app/Http/Controllers/ComercioListadoController.php</file>
+            <file>file:/home/ivo/NetBeansProjects/practico_2/routes/web.php</file>
         </group>
     </open-files>
 </project-private>

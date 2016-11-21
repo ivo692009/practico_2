@@ -34,6 +34,17 @@ class ListadoProductosController extends Controller
    public function store(Request $request)
    {
      $nuevo= new Listado($request ->all());
+     
+             if($request->file('foto_producto') != "")
+        {
+            //obtenemos el campo file definido en el formulario
+            $file = $request->file('foto_producto');
+            $extencion = substr($file->getClientOriginalName(), -4); 
+           //indicamos que queremos guardar un nuevo archivo en el disco local
+           \Storage::disk('public')->put($extencion,  \File::get($file));
+        }
+     
+     
      $nuevo->save();
      return redirect('inicio');
    }

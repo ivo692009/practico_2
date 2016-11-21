@@ -38,3 +38,15 @@ Route::get('productos/{id}','ComercioListadoController@productos');
 Route::get('producto/create/{id}','ListadoProductosController@crear');
 
 Route::resource('producto', 'ListadoProductosController');
+
+Route::get('storage/{archivo}', function ($archivo) {
+	$public_path = public_path();
+	$url = $public_path.'/storage/'.$archivo;
+	//verificamos si el archivo existe y lo retornamos
+	if (Storage::exists($archivo))
+	{
+		return response()->download($url);
+	}
+	//si no se encuentra lanzamos un error 404.
+	abort(404);
+});
